@@ -2,6 +2,18 @@
 // this is the main activity, which is the entry point for my app.
 // ctr + s +alt to open settings
 
+// testing github
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// stuff
+
 package com.example.myfirstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
