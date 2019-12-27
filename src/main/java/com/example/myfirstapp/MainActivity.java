@@ -8,9 +8,9 @@
 //
 //
 
+// do do
+
 // yo
-
-
 
 // try to do ssh so i dont have to type in the password
 
@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+
+// gavin wu
 
 
 
