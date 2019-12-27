@@ -14,6 +14,8 @@
 //
 // stuff
 
+// try to do ssh so i dont have to type in the password
+
 package com.example.myfirstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
