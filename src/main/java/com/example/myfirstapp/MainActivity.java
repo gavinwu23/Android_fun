@@ -11,11 +11,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 
 public class MainActivity extends AppCompatActivity {
 
+     private Dummy d = new Dummy("my name gwu");
 
     // our key as for the intent
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
@@ -24,6 +26,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); // set the layout from the xml file
+
+        // second way to add a listener to the button
+//
+        // grab the button by its id and then do this
+//        Button b = (Button) findViewById(R.id.button);
+//        b.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // call method here
+//            }
+//        });
 
 
     }
@@ -45,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     // only View as paramater, otherwise it will crash
 
     // so intent is object that provides runtime binding between seperate components like 2 activities
-    public void sendMessage(View view) {
+    public void buttonSend(View view) {
 
         // takes 2 paramaters ( constructor ). the Context and a class
         // the class is the class that you basically want to load in
