@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
      private Dummy d = new Dummy("my name gwu");
 
     // our key as for the intent
+    // good practice to make a constant to pass it to putExtra.
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 
     @Override
@@ -60,11 +62,6 @@ public class MainActivity extends AppCompatActivity {
     // so intent is object that provides runtime binding between seperate components like 2 activities
     public void buttonSend(View view) {
 
-        // takes 2 paramaters ( constructor ). the Context and a class
-        // the class is the class that you basically want to load in
-        // DisplayMessageActivity is a java class/file we made that we want to load in
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-
         // inside our xml, we have a plain text aka called editText,
         // and we want to hook that up using EditText object.
         // type case it for some reason? and call findViewById (R.id.editText) -> where .editText is our id of our plain text
@@ -72,6 +69,19 @@ public class MainActivity extends AppCompatActivity {
 
         // get the text from the textbox, cast it toString makes sense
         String message = editText.getText().toString();
+
+        // check if the string we got back is empty, if it is then make a toast and show the popup
+        if (message.isEmpty()) {
+            // lets make a Toast (popup)
+            Toast errorCheck = Toast.makeText(this, "Please enter something", Toast.LENGTH_SHORT);
+            errorCheck.show();
+            return;
+        }
+
+        // takes 2 paramaters ( constructor ). the Context and a class
+        // the class is the class that you basically want to load in
+        // DisplayMessageActivity is a java class/file we made that we want to load in
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
 
         // putExtra, addes the value from we got from the text box. Intent can carry data as key-value pairs called extras
         // the key in this case is EXTRA_MESSAGE and value is the message from the text box.
