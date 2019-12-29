@@ -92,5 +92,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // method called when we click on the view image button which will direct us to a new screen showing a picture
+    public void viewImageButton (View view) {
+
+        Intent intent = new Intent(this, Image.class);
+        startActivity(intent);
+    }
+
 }
 
