@@ -12,13 +12,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
 
      private Dummy d = new Dummy("my name gwu");
+     private boolean mature = false;
 
     // our key as for the intent
     // good practice to make a constant to pass it to putExtra.
@@ -28,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); // set the layout from the xml file
+
+        // set up the switch
+        setSwitch();
 
         // second way to add a listener to the button
 //
@@ -95,8 +102,34 @@ public class MainActivity extends AppCompatActivity {
     // method called when we click on the view image button which will direct us to a new screen showing a picture
     public void viewImageButton (View view) {
 
+        // user wants an adult image :)
+        if (this.mature == true) {
+            Intent intent = new Intent(this, Adult.class);
+            startActivity(intent);
+            return;
+        }
+
+        // regular non 18 image
         Intent intent = new Intent(this, Image.class);
         startActivity(intent);
+    }
+
+    //=======================================================================================================================
+    // method to set up the event handler for the switch
+    private void setSwitch ( ) {
+
+        Switch s = (Switch) findViewById(R.id.switch1);
+        s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) { // we check isChecked T/F to do w.e we want
+                if (isChecked) {
+                    mature = true;
+                }
+                else {
+                    mature = false;
+                }
+            }
+        });
     }
 
 }
