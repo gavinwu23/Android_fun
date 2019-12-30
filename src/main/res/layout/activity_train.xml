@@ -4,18 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Train">
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:onClick="changeFramgment"
+        android:text="Fragment1" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:onClick="changeFramgment"
+        android:text="Fragment2" />
+
+    <fragment
+        android:id="@+id/fragmentPlace"
+        android:name="com.example.myfirstapp.FragmentOne"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></fragment>
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

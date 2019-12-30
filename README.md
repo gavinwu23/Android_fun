@@ -13,6 +13,7 @@ What i have in here so I can look back:
     strings.xml
     Toast popup
     Switch
+    Fragments 
 
 
 
