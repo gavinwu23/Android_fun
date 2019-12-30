@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class DisplayMessageActivity extends AppCompatActivity {
@@ -38,4 +39,15 @@ public class DisplayMessageActivity extends AppCompatActivity {
         //textView.setText(hello.getLuckyPhrase()); // setText method to set the text of it
 
     } // oncreate method
+
+
+    //==============================================================================================================
+    // method for the nextscreen button which creates
+    // a train from main -> here -> nextScreen for fun to see if it works
+    public void goToNextScreen (View view) {
+
+        Intent intent = new Intent(this, Train.class);
+        startActivity(intent);
+    }
+
 }

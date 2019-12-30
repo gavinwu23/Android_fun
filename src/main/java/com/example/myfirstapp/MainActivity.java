@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
     public void viewImageButton (View view) {
 
         // user wants an adult image :)
-        if (this.mature == true) {
+        if (this.mature) {
             Intent intent = new Intent(this, Adult.class);
             startActivity(intent);
             return;
