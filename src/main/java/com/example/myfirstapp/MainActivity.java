@@ -11,15 +11,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
      private Dummy d = new Dummy("my name gwu");
      private boolean mature = false;
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
         // set up the switch
         setSwitch();
+
+        // set up the drop down list menu aka the spinner
+        setSpinner();
 
         // second way to add a listener to the button
 //
@@ -116,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
     //=======================================================================================================================
     // method to set up the event handler for the switch
+    // in this case the 18+ switch
     private void setSwitch ( ) {
 
         Switch s = (Switch) findViewById(R.id.switch1);
@@ -123,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) { // we check isChecked T/F to do w.e we want
                 if (isChecked) {
-                    mature = true;
+                    mature = true; // used when we click the image button to see if we want mature image or not
                 }
                 else {
                     mature = false;
@@ -132,5 +139,38 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //===============================================================================================================================
+    // set up the spinner (drop down menu)
+    private void setSpinner ( ) {
+
+        Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
+
+        // array adapter 3 paramaters, first is context, second is the array from strings.xml, and third is a layout(we use default layout)
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.weather,android.R.layout.simple_spinner_item);
+
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        mySpinner.setAdapter(adapter);
+
+        // apply the listeners to the spinner
+        mySpinner.setOnItemSelectedListener(this);
+    }
+
+
+    // listener for the spinner when we click item slected
+    // to access element do parent.getItematposition(position)
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String msg = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), msg, Toast.LENGTH_SHORT).show();
+        //System.out.println("hello");
+    }
+
+    // required from the interface
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
 

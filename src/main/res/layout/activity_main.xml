@@ -63,4 +63,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switch1" />
 
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="247dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

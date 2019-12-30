@@ -14,6 +14,7 @@ What i have in here so I can look back:
     Toast popup
     Switch
     Fragments 
+    Spinner (drop down menu)
 
 
 
